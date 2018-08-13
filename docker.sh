@@ -39,6 +39,18 @@ docker run -ti --rm \
   dev/centos "$@"
 }
 
+function centos6-dev {
+id=$(uuidgen | cut -c 1-4)
+name=dev-$USER-$id
+docker run -ti --rm \
+  --name $name --hostname $name \
+  -v "$HOME/:$HOME/" \
+  -v "$HOME/:/home/dev/" \
+  -v "/var/run/docker.sock:/var/run/docker.sock" \
+  -w $PWD -u dev \
+  dev/centos6 "$@"
+}
+
 # Docker overrides
 if [[ -a /.dockerenv  ]]; then
   export PATH=$HOME/.linuxbrew/bin:$PATH
