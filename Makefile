@@ -13,6 +13,9 @@ centos6-image:
 ruby-minimal-image:
 	cd ruby && docker build --rm . -f Dockerfile.ruby-minimal -t dev/ruby-minimal
 
-all: ubuntu-image debian-image centos-image centos6-image
+mkdocs-image:
+	cd mkdocs && make build
+
+all: ubuntu-image debian-image centos-image centos6-image mkdocs-image
 
 # ruby-minimal-image
