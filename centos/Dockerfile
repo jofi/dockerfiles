@@ -42,7 +42,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Ruby and Python modules
-RUN gem install parallel ffi
+#RUN gem install parallel ffi
 #RUN pip install protobuf
 
 # Add user and setup home

@@ -1,5 +1,5 @@
 FROM centos:6
-MAINTAINER Jozef Fulo <jozef.fulop@innovatrics.com>
+MAINTAINER Jozef Fulop <jozef.fulop@innovatrics.com>
 LABEL Description="This image is intended to replace VM based Linux development machines" Vendor="Jozef Fulop" Version="0.1"
 
 # Install basic dependencies
