@@ -1,14 +1,8 @@
 ubuntu-image:
 	cd ubuntu && docker build --rm . -t dev/ubuntu
 
-debian-image:
-	cd debian && docker build --rm . -t dev/debian
-
-centos-image:
-	cd centos && docker build --rm . -t dev/centos
-
-centos6-image:
-	cd centos6 && docker build --rm . -t dev/centos6
+rocky-image:
+	cd rocky && docker build --rm . -t dev/rocky
 
 ruby-minimal-image:
 	cd ruby && docker build --rm . -f Dockerfile.ruby-minimal -t dev/ruby-minimal
@@ -16,6 +10,6 @@ ruby-minimal-image:
 mkdocs-image:
 	cd mkdocs && make build
 
-all: ubuntu-image debian-image centos-image centos6-image mkdocs-image
+all: ubuntu-image rocky-image mkdocs-image
 
 # ruby-minimal-image

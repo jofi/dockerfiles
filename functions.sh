@@ -15,7 +15,7 @@ docker run -ti --rm \
   dev/ubuntu "$@"
 }
 
-function debian-dev {
+function rocky-dev {
 id=$(uuidgen | cut -c 1-4)
 name=dev-$USER-$id
 docker run -ti --rm \
@@ -24,34 +24,10 @@ docker run -ti --rm \
   -v "$HOME/:/home/dev/" \
   -v "/var/run/docker.sock:/var/run/docker.sock" \
   -w $PWD -u dev \
-  dev/debian "$@"
+  dev/rocky "$@"
 }
 
-function centos-dev {
-id=$(uuidgen | cut -c 1-4)
-name=dev-$USER-$id
-docker run -ti --rm \
-  --name $name --hostname $name \
-  -v "$HOME/:$HOME/" \
-  -v "$HOME/:/home/dev/" \
-  -v "/var/run/docker.sock:/var/run/docker.sock" \
-  -w $PWD -u dev \
-  dev/centos "$@"
-}
-
-function centos6-dev {
-id=$(uuidgen | cut -c 1-4)
-name=dev-$USER-$id
-docker run -ti --rm \
-  --name $name --hostname $name \
-  -v "$HOME/:$HOME/" \
-  -v "$HOME/:/home/dev/" \
-  -v "/var/run/docker.sock:/var/run/docker.sock" \
-  -w $PWD -u dev \
-  dev/centos6 "$@"
-}
-
-function mkdocs {
+function mkdocs-dev {
   id=$(uuidgen | cut -c 1-4)
     name=mkdocs-$USER-$id
     docker run -ti --rm \
@@ -63,7 +39,6 @@ function mkdocs {
     -w $PWD -u dev \
     dev/mkdocs "$@"
 }
-
 
 # Docker overrides
 if [[ -a /.dockerenv  ]]; then
